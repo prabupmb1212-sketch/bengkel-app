@@ -3,6 +3,11 @@
 import { signOut } from "next-auth/react";
 
 export default function DashboardPage() {
+  async function handleLogout() {
+    await signOut({ redirect: false });
+    window.location.replace("/login");
+  }
+
   return (
     <main className="welcome-shell">
       <section className="welcome-card">
@@ -16,7 +21,7 @@ export default function DashboardPage() {
         <button
           className="logout-button"
           type="button"
-          onClick={() => signOut({ callbackUrl: "/login" })}
+          onClick={handleLogout}
         >
           Keluar dari Bengkelku
         </button>
