@@ -16,6 +16,17 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Login Google
+
+Buka [http://localhost:3000/login](http://localhost:3000/login) untuk halaman login. Agar tombol Google berfungsi:
+
+1. Buat OAuth Client ID tipe **Web application** di Google Cloud Console.
+2. Tambahkan `http://localhost:3000/api/auth/callback/google` sebagai **Authorized redirect URI**.
+3. Isi `GOOGLE_CLIENT_ID` dan `GOOGLE_CLIENT_SECRET` di `.env.local`.
+4. Pastikan `NEXTAUTH_URL` sesuai dengan port yang digunakan aplikasi.
+
+Untuk server development yang berjalan di port `3001`, gunakan redirect URI `http://localhost:3001/api/auth/callback/google` dan ubah `NEXTAUTH_URL` ke `http://localhost:3001`.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
